@@ -16,7 +16,7 @@ export class MapPage implements OnInit, OnDestroy {
       const [Map, MapView] = await loadModules(['esri/Map', 'esri/views/MapView']);
 
       const mapProperties = {
-        basemap: 'streets'
+        basemap: 'dark-gray-vector'
       };
 
       const map = new Map(mapProperties);
