@@ -13,4 +13,8 @@ export class ApiService {
   getLocalConfirmedCases(): Promise<any> {
     return this.http.get(environment.api.origin.url + environment.api.origin.confirmed, {responseType: 'text'}).toPromise();
   }
+
+  getLocalTestCases(): Promise<any> {
+    return this.http.get(environment.api.origin.url + environment.api.origin.testing, {responseType: 'text'}).toPromise();
+  }
 }

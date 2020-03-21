@@ -13,6 +13,8 @@ import { ChartsModule } from 'ng2-charts';
 import { ApiService } from './../api.service';
 
 import { TotalCasesComponent } from './components/total-cases/total-cases.component';
+import { TotalTestsComponent } from './components/total-tests/total-tests.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { TotalCasesComponent } from './components/total-cases/total-cases.compon
   ],
   declarations: [
     HomePage,
-    TotalCasesComponent
+    TotalCasesComponent,
+    TotalTestsComponent
   ],
   providers: [ApiService]
 })
