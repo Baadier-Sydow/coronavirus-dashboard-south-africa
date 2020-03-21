@@ -3,6 +3,7 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
+          <ion-img src="/assets/logo.png" class="menu-logo"></ion-img>
           <ion-list-header>Coronovirus Dashboard</ion-list-header>
           <ion-note>South Africa</ion-note>
 
@@ -13,6 +14,11 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        <ion-footer class="ion-no-border footer-credit">
+          <ion-toolbar>
+            <p>Made with <ion-icon [ios]="'heart' + '-outline'" [md]="'heart' + '-sharp'" color="red"></ion-icon> in Cape Town / <a href="https://twitter.com/baadier">@baadier</a></p>
+          </ion-toolbar>
+        </ion-footer>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
