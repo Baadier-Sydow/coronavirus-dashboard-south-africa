@@ -8,13 +8,19 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 
+import { ChartsModule } from 'ng2-charts';
+
+import { ApiService } from './../api.service';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ChartsModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  providers: [ApiService]
 })
 export class HomePageModule {}
