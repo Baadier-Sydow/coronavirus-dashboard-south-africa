@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ApiService } from './../api.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -10,14 +8,9 @@ import { ApiService } from './../api.service';
 export class HomePage implements OnInit {
 
   title = 'Home';
-  cases: any;
 
-  constructor(private api: ApiService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.api.getConfirmedCases().then((cases: any) => {
-      this.cases = cases;
-    });
-  }
+  ngOnInit() { }
 
 }

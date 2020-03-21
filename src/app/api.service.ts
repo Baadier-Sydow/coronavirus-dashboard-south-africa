@@ -7,13 +7,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  endpoints: {
-    confirmed: 'cases/confirmed'
-  };
 
   constructor(private http: HttpClient) { }
 
-  getConfirmedCases(): Promise<any> {
-    return this.http.get(environment.api.international).toPromise();
+  getLocalConfirmedCases(): Promise<any> {
+    return this.http.get(environment.api.origin.url + environment.api.origin.confirmed, {responseType: 'text'}).toPromise();
+  }
+
+  getLocalTestCases(): Promise<any> {
+    return this.http.get(environment.api.origin.url + environment.api.origin.testing, {responseType: 'text'}).toPromise();
   }
 }
