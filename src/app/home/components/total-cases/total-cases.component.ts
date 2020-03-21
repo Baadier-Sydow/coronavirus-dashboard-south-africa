@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ApiService } from './../../../api.service';
+
+import * as csvToJson from 'csvtojson';
+
 @Component({
   selector: 'app-total-cases',
   templateUrl: './total-cases.component.html',
@@ -7,8 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TotalCasesComponent implements OnInit {
 
-  constructor() { }
+  cases: any;
+  constructor(private api: ApiService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.api.getLocalConfirmedCases().then((casesCSV: any) => {
+      csvToJson().fromString(casesCSV).then((casesJson) => {
+        this.cases = casesJson;
+      });
+    });
+  }
 
 }
