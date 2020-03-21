@@ -23,9 +23,14 @@ export class AppComponent implements OnInit {
       icon: 'map'
     },
     {
-      title: 'Data',
+      title: 'Data Source',
       url: '/data',
       icon: 'analytics'
+    },
+    {
+      title: 'Useful Links',
+      url: '/links',
+      icon: 'link'
     },
     {
       title: 'About',
