@@ -12,6 +12,7 @@ import { ChartsModule } from 'ng2-charts';
 
 import { ApiService } from './../api.service';
 
+import { TotalCasesComponent } from './components/total-cases/total-cases.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +21,10 @@ import { ApiService } from './../api.service';
     HomePageRoutingModule,
     ChartsModule
   ],
-  declarations: [HomePage],
+  declarations: [
+    HomePage,
+    TotalCasesComponent
+  ],
   providers: [ApiService]
 })
 export class HomePageModule {}
