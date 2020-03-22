@@ -8,7 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 
-import { ChartsModule } from 'ng2-charts';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { ApiService } from './../api.service';
 
@@ -21,7 +21,7 @@ import { TotalTestsComponent } from './components/total-tests/total-tests.compon
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    ChartsModule
+    HighchartsChartModule
   ],
   declarations: [
     HomePage,

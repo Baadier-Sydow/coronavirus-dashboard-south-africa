@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
+import * as Highcharts from 'highcharts';
+import theme from 'highcharts/themes/dark-unica';
+theme(Highcharts);
 
 import { ApiService } from './../../../api.service';
 
@@ -14,28 +15,40 @@ import * as csvToJson from 'csvtojson';
 })
 export class TotalTestsComponent implements OnInit {
 
-  tests: any;
-  lineChartData: ChartDataSets[] = [
-    { data: [], label: 'Local Tests' },
-    { data: [], label: 'Travellers Tested' },
-  ];
-
-  lineChartLabels: Label[];
-
-  lineChartOptions = {
-    responsive: true,
+  Highcharts: typeof Highcharts = Highcharts;
+  chartOptions: Highcharts.Options = {
+    title: {
+      text: ''
+    },
+    xAxis: {
+      categories: []
+    },
+    yAxis: {
+      title: {
+        text: 'Tests'
+      }
+    },
+    legend: {
+      enabled: true,
+      layout: 'horizontal',
+      align: 'center',
+      verticalAlign: 'bottom',
+      borderWidth: 0
+    },
+    series: [{
+      data: [],
+      type: 'line',
+      name: 'Local Tests'
+    }, {
+      data: [],
+      type: 'line',
+      name: 'Travellers Tested'
+    }]
   };
 
-  lineChartColors: Color[] = [
-    {
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,255,0,0.28)',
-    },
-  ];
+  chartUpdateFlag: boolean = false;
+  tests: any;
 
-  lineChartLegend = true;
-  lineChartPlugins = [];
-  lineChartType = 'line';
   constructor(private api: ApiService) { }
 
   ngOnInit() {
@@ -48,11 +61,23 @@ export class TotalTestsComponent implements OnInit {
   }
 
   processChartData() {
+    let tempScannedTravellers = 0;
+    
     this.tests.forEach(datapoint => {
-        this.lineChartLabels.push(datapoint.date);
-        this.lineChartData[0].data.push(datapoint.cumulative_tests);
-        this.lineChartData[1].data.push(datapoint.scanned_travellers);
+      this.chartOptions.xAxis.categories.push(datapoint.date);
+      this.chartOptions.series[0].data.push(parseInt(datapoint.cumulative_tests));
+      if (datapoint.scanned_travellers === '') {
+        this.chartOptions.series[1].data.push(tempScannedTravellers);
+      } else {
+        this.chartOptions.series[1].data.push(parseInt(datapoint.scanned_travellers));
+        tempScannedTravellers = parseInt(datapoint.scanned_travellers);
+      }
     });
+
+    this.chartUpdateFlag = true;
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 10);
   }
 
 }

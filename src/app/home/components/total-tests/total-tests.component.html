@@ -1,11 +1,17 @@
-<div class="chart-wrapper">
-  <canvas baseChart 
-      [datasets]="lineChartData" 
-      [labels]="lineChartLabels" 
-      [options]="lineChartOptions"
-      [colors]="lineChartColors" 
-      [legend]="lineChartLegend" 
-      [chartType]="lineChartType" 
-      [plugins]="lineChartPlugins">
-  </canvas>
-</div>
+
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Total Coronavirus Tests Completed</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <highcharts-chart 
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+  [(update)]="chartUpdateFlag"
+
+  style="width: 100%; height: 400px; display: block;"
+></highcharts-chart>
+  </ion-card-content>
+</ion-card>
