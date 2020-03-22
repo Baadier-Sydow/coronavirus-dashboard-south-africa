@@ -16,7 +16,7 @@ import * as csvToJson from 'csvtojson';
 export class TotalTestsComponent implements OnInit {
 
   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
+  chartOptions: Highcharts.Options | any = {
     title: {
       text: ''
     },
@@ -62,7 +62,7 @@ export class TotalTestsComponent implements OnInit {
 
   processChartData() {
     let tempScannedTravellers = 0;
-    
+
     this.tests.forEach(datapoint => {
       this.chartOptions.xAxis.categories.push(datapoint.date);
       this.chartOptions.series[0].data.push(parseInt(datapoint.cumulative_tests));
@@ -75,9 +75,6 @@ export class TotalTestsComponent implements OnInit {
     });
 
     this.chartUpdateFlag = true;
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 10);
   }
 
 }
