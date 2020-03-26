@@ -14,6 +14,10 @@ import { ApiService } from './../api.service';
 
 import { TotalCasesComponent } from './components/total-cases/total-cases.component';
 import { TotalTestsComponent } from './components/total-tests/total-tests.component';
+import { CasesByProvinceComponent } from './components/cases-by-province/cases-by-province.component';
+import { TotalICUComponent } from './components/total-icu/total-icu.component';
+import { TotalRecoveredComponent } from './components/total-recovered/total-recovered.component';
+import { TotalDeathsComponent } from './components/total-deaths/total-deaths.component';
 
 @NgModule({
   imports: [
@@ -26,7 +30,11 @@ import { TotalTestsComponent } from './components/total-tests/total-tests.compon
   declarations: [
     HomePage,
     TotalCasesComponent,
-    TotalTestsComponent
+    TotalTestsComponent,
+    CasesByProvinceComponent,
+    TotalDeathsComponent,
+    TotalRecoveredComponent,
+    TotalICUComponent
   ],
   providers: [ApiService]
 })

@@ -11,14 +11,12 @@ import * as csvToJson from 'csvtojson';
 })
 export class TotalCasesComponent implements OnInit {
 
-  cases: any;
+  cases: any = [];
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getLocalConfirmedCases().then((casesCSV: any) => {
-      csvToJson().fromString(casesCSV).then((casesJson) => {
-        this.cases = casesJson;
-      });
+    this.api.getLocalConfirmedCases().then(cases => {
+      this.cases = cases;
     });
   }
 

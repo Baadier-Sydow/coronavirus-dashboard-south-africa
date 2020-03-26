@@ -15,7 +15,30 @@
   </ion-header>
 
   <div id="container">
-    <app-total-cases></app-total-cases>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-align-self-stretch">
+            <app-total-cases></app-total-cases>
+        </ion-col>
+        <ion-col class="ion-align-self-stretch">
+          <div>
+            <app-total-recovered></app-total-recovered>
+          </div>
+        </ion-col>
+        <ion-col class="ion-align-self-stretch">
+          <div>
+            <app-total-icu></app-total-icu>
+          </div>
+        </ion-col>
+        <ion-col class="ion-align-self-stretch">
+          <div>
+            <app-total-deaths></app-total-deaths>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
     <app-total-tests></app-total-tests>
+    <app-cases-by-province></app-cases-by-province>
   </div>
 </ion-content>
