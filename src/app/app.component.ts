@@ -17,11 +17,11 @@ export class AppComponent implements OnInit {
       url: '/',
       icon: 'home'
     },
-    {
-      title: 'Map',
-      url: '/map',
-      icon: 'map'
-    },
+    // {
+    //   title: 'Map',
+    //   url: '/map',
+    //   icon: 'map'
+    // },
     {
       title: 'Data Sources',
       url: '/data',
