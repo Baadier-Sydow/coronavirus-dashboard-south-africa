@@ -1,0 +1,17 @@
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Total Cases by Province</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+<highcharts-chart
+[Highcharts]="Highcharts"
+[constructorType]="mapChart"
+[options]="chartOptions"
+[(update)]="chartUpdateFlag"
+
+style="width: 100%; height: 650px; display: block;">
+</highcharts-chart>
+  </ion-card-content>
+</ion-card>
